@@ -4,7 +4,9 @@ The joke turns on two things every phone owner knows: a phone can sit at 1%
 for hours, and the cruellest way to spend its last breath is opening maps —
 the one app that needs the phone alive to get its owner home. The phone does
 not beg for a charger; it is insulted by how its final moments were spent,
-and it says so in lowercase, the way a real text reads.
+and it says so in lowercase, the way a real text reads. "on maps" beats
+"opening maps": present tense, one word shorter, and it lands the insult
+in the same breath as the dying.
 
 The program writes the entry to $MAKEFUN_OUTPUT_DIR/entry.txt
 (default /output/entry.txt). It is deterministic: every run writes the same
@@ -16,7 +18,7 @@ from pathlib import Path
 
 ENTRY = (
     "i held 1% for three hours like a champ and you spend my last breath "
-    "opening maps. MAPS. good luck getting home, genius."
+    "on maps. MAPS. good luck getting home, genius."
 )
 
 MAX_CHARS = 200
