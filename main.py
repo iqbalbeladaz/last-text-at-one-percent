@@ -22,12 +22,19 @@ ENTRY = (
 )
 
 MAX_CHARS = 200
+MAX_BYTES = 200
 
 
 def entry_text() -> str:
     """Return the entry, refusing anything outside the gate's limits."""
     if not 1 <= len(ENTRY) <= MAX_CHARS:
         raise ValueError(f"entry is {len(ENTRY)} chars, must be 1-{MAX_CHARS}")
+    # The gate counts characters, but the judge's tie-break counts bytes:
+    # keep both small so a later edit cannot silently break either.
+    if len(ENTRY.encode("utf-8")) > MAX_BYTES:
+        raise ValueError(
+            f"entry is {len(ENTRY.encode('utf-8'))} bytes, must be <= {MAX_BYTES}"
+        )
     if ENTRY.strip() != ENTRY or "\n" in ENTRY or not ENTRY.strip():
         raise ValueError("entry must be one clean, non-empty line")
     return ENTRY
